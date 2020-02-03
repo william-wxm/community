@@ -1,0 +1,58 @@
+package life.weike.community.community.model;
+
+public class User {
+    private long id;
+    private String name;
+    private String accountId;
+    private long gmtCreate;
+    private long gmtModified;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    public long getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(long gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public long getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(long gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+}
