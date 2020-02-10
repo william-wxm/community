@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <title >麻将社区</title>
+    <title>发布</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
     <script src="js/bootstrap.min.js" type="application/javascript" ></script>
@@ -11,7 +11,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid" style="background-color: #499ef3">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header" >
+        <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">麻将社区</span>
             </button>
@@ -46,29 +46,34 @@
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
+
 </nav>
-<div class="container-fluid" >
+<div class="container-fluid" style="background-color: #e1e1e1">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 " >
-            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>发现</h2>
+            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>发起</h2>
             <hr>
-            <div class="media" th:each="question:${questions}">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="media-object" th:src="${question.user.avatarUrl}" >
-                    </a>
+            <form action="/publish" method="post">
+                <div class="form-group">
+                    <label for="title">问题标题（简单扼要）：</label>
+                    <input type="text" class="form-control" th:text="${title}"  id="title" name="title" placeholder="问题标题...">
                 </div>
-                <div class="media-body">
-                    <h4 class="media-heading" style="color: #333333 ; font-size: 14px ; font-weight: bold" th:text="${question.title}"></h4>
-                    <span style="font-size: 12px" th:text="${question.description}"></span><br>
-                    <span style="font-size: 12px ; font-weight: normal ; color:#999 " ><span th:text="${question.commentCount}"></span>个回复 • <span th:text="${question.getViewCount()}"></span>次浏览 • <span th:text="${#dates.format(question.getGmtCreate() ,'yyyy-MM-dd HH:mm')}"></span>
-                    </span>
-                    <hr>
+                <div class="form-group">
+                    <label for="description">问题补充（必填，请参照右侧提示）：</label>
+                    <textarea name="description" id="description" th:text="${description}" class="form-control" cols="30" rows="10"></textarea>
+
                 </div>
-            </div>
-            </div>
+                <div class="form-group">
+                    <label for="tag">添加标签：</label>
+                    <input type="text" class="form-control" th:text="${tag}" id="tag" name="tag" placeholder="请输入标签...以，分割">
+                </div>
+                <span class="alert alert-danger" th:text="${error}" th:if="${error != null}"></span>
+                <button type="submit" class="btn btn-success">发布</button>
+            </form>
+        </div>
+
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 " >
-            <h3>热门话题</h3>
+            <h3>问题发起指南</h3>
             ·问题标题：请用精简的语言描述您发布的问题，不超过25个字<br>
             ·问题补充：详细补充您的问题内容，并确保问题描述清晰直观，并提供一些相关的资料；<br>
 
@@ -81,7 +86,8 @@
             ·选择标签：选择一个或多个合适的标签，不超过10个字；<br>
             ·关于积分：发起一个问题会消耗您20积分，每多一个回复你将获得5个积分的奖励，为了您的利益，在发起问题的时候希望能够更好地描述您的问题以及多使用站内搜索功能；<br>
         </div>
-        </div>
+
     </div>
+</div>
 </body>
 </html>

@@ -42,12 +42,13 @@ public class AuthorizeContorller {
         accessTokenDTO.setClient_secret(clientSecret);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
-        if (githubUser != null){
+        if (githubUser != null && githubUser.getId() != null ){
             User user = new User();
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             user.setName(githubUser.getName());
+            user.setAvatarUrl(githubUser.getAvatar_url());
             String token = UUID.randomUUID().toString();
             user.setToken(token);
             githubUserMapper.insert(user);
