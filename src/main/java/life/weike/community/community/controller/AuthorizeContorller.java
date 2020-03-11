@@ -1,6 +1,7 @@
 package life.weike.community.community.controller;
 
 import life.weike.community.community.GithubProvider.githubProvider;
+import life.weike.community.community.QuestionService.UserService;
 import life.weike.community.community.dto.AccessTokenDTO;
 import life.weike.community.community.dto.GithubUser;
 import life.weike.community.community.mapper.GithubUserMapper;
@@ -29,6 +30,8 @@ public class AuthorizeContorller {
     private GithubUserMapper githubUserMapper;
     @Autowired
     private githubProvider githubProvider;
+    @Autowired
+    private UserService userService;
     @GetMapping("/callback")
     public String callback(@RequestParam(name="code")String code ,
                            @RequestParam (name="state")String state,
@@ -44,20 +47,28 @@ public class AuthorizeContorller {
         GithubUser githubUser = githubProvider.getUser(accessToken);
         if (githubUser != null && githubUser.getId() != null ){
             User user = new User();
-            user.setAccountId(String.valueOf(githubUser.getId()));
-            user.setGmtCreate(System.currentTimeMillis());
-            user.setGmtModified(user.getGmtCreate());
-            user.setName(githubUser.getName());
-            user.setAvatarUrl(githubUser.getAvatar_url());
             String token = UUID.randomUUID().toString();
             user.setToken(token);
-            githubUserMapper.insert(user);
-            request.getSession().setAttribute("user",githubUser);
+            user.setAccountId(String.valueOf(githubUser.getId()));
+            user.setName(githubUser.getName());
+            user.setAvatarUrl(githubUser.getAvatar_url());
+            userService.createOrUpdate(user);
+            //githubUserMapper.insert(user);
+            request.getSession().setAttribute("user",user);
             response.addCookie(new Cookie("token",token));
 
             return "redirect:/";
         }else{
             return "redirect:/";
         }
+    }
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request,
+                         HttpServletResponse response){
+        request.getSession().removeAttribute("user");
+        Cookie cookie = new Cookie("token",null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return "redirect:/";
     }
 }

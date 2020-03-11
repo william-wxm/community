@@ -47,18 +47,7 @@ public class PublishController {
         model.addAttribute("title" , title);
         model.addAttribute("description" ,description);
         model.addAttribute("tag" ,tag );
-        User user = null;
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies){
-            if (cookie.getName().equals("token")){
-                String token = cookie.getValue();
-                user = githubUserMapper.findByToken(token);
-                if (user != null) {
-                    request.getSession().setAttribute("user" , user);
-                }
-                break;
-            }
-        }
+        User user = (User) request.getSession().getAttribute("user");
         if (user == null){
             model.addAttribute("error" , "用户未登录");
             return "publish";
@@ -67,9 +56,10 @@ public class PublishController {
         question.setTitle(title);
         question.setDescription(description);
         question.setTag(tag);
-        question.setCreator(user.getId());
+        question.setCreator(Long.parseLong(user.getAccountId()));
         question.setGmtCreate(System.currentTimeMillis());
         question.setGmtModified(question.getGmtCreate());
+        System.out.println(question);
         questionMapper.create(question);
         return "redirect:/";
 

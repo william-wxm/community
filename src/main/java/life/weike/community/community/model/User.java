@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 public class User {
-    private Long id;
+    private long id;
     private String name;
     private String accountId;
-    private Long gmtCreate;
-    private Long gmtModified;
+    private long gmtCreate;
+    private long gmtModified;
     private String token;
     private String avatarUrl;
 
