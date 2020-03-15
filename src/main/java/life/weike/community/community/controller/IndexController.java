@@ -24,7 +24,7 @@ public class IndexController {
                         @RequestParam(name = "size", defaultValue = "8") Integer size) {
 
         PaginationDTO pagination = quesionService.list(page, size);
-        model.addAttribute("question", pagination);
+        model.addAttribute("questions", pagination);
         return "index";
     }
 }
