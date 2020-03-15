@@ -1,5 +1,7 @@
 package life.weike.community.community.controller;
 
+import life.weike.community.community.QuestionService.QuesionService;
+import life.weike.community.community.dto.QuestionDTO;
 import life.weike.community.community.mapper.GithubUserMapper;
 import life.weike.community.community.mapper.QuestionMapper;
 import life.weike.community.community.model.Question;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,6 +23,19 @@ public class PublishController {
     private QuestionMapper questionMapper;
     @Autowired
     private GithubUserMapper githubUserMapper;
+    @Autowired
+    private QuesionService quesionService;
+
+    @GetMapping("/publish/{id}")
+    public String edit(@PathVariable(name = "id") long id,
+                       Model model){
+QuestionDTO question=quesionService.getById(id);
+model.addAttribute("title",question.getTitle());
+        model.addAttribute("description",question.getDescription());
+        model.addAttribute("tag",question.getTag());
+        model.addAttribute("id",question.getId());
+        return "publish";
+    }
 
     @GetMapping("/publish")
     public String publish() {
@@ -27,9 +43,10 @@ public class PublishController {
     }
 
     @PostMapping("/publish")
-    public String doPulish(@RequestParam("title") String title,
-                           @RequestParam("description") String description,
-                           @RequestParam("tag") String tag,
+    public String doPulish(@RequestParam(value = "title",required = false) String title,
+                           @RequestParam(value = "description",required = false) String description,
+                           @RequestParam(value = "tag",required = false) String tag,
+                           @RequestParam(value = "id",required = false) long id,
                            HttpServletRequest request,
                            Model model) {
         if (title == null || title == ""){
@@ -57,10 +74,8 @@ public class PublishController {
         question.setDescription(description);
         question.setTag(tag);
         question.setCreator(Long.parseLong(user.getAccountId()));
-        question.setGmtCreate(System.currentTimeMillis());
-        question.setGmtModified(question.getGmtCreate());
-        System.out.println(question);
-        questionMapper.create(question);
+       question.setId(id);
+       quesionService.createOrUpdate(question);
         return "redirect:/";
 
 

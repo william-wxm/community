@@ -15,7 +15,7 @@ public interface GithubUserMapper {
     User findByToken(@Param("token") String token);
 
     @Select("select * from user where id=#{id}")
-    User findById(@Param("id") Long id);
+    User findById(@Param("id") long id);
 
     @Select("select * from user where account_id=#{accountId}")
     User findByAccountId(@Param("accountId") String accountId);

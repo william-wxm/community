@@ -2,33 +2,36 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <title >麻将社区</title>
+    <title>麻将社区</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
-    <script src="js/jquery-3.4.1.min.js" ></script>
-    <script src="js/bootstrap.min.js" type="application/javascript" ></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
 </head>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
-<div class="container-fluid" >
+<div class="container-fluid">
     <div class="row">
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 " >
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 ">
             <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>发现</h2>
             <hr>
             <div class="media" th:each="question:${questions.questions}">
                 <div class="media-left">
                     <a href="#">
-                         <!--
-                        <img class="media-object" th:src="${question.getUser().getAvatarUrl()}" >
-                          -->
+
+                       <img class="media-object" style="height: 42px; width: 42px" th:src="${question.user.avatarUrl}" >
+
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" style="color: #333333 ; font-size: 14px ; font-weight: bold"  th:text="${question.title}">
-
+                    <h4 class="media-heading" style="color: #333333 ; font-size: 14px ; font-weight: bold">
+                        <a th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
                     </h4>
                     <span style="font-size: 12px" th:text="${question.description}"></span><br>
-                    <span style="font-size: 12px ; font-weight: normal ; color:#999 " ><span th:text="${question.commentCount}"></span>个回复 • <span th:text="${question.viewCount}"></span>次浏览 • <span th:text="${#dates.format(question.getGmtCreate() ,'yyyy-MM-dd HH:mm')}"></span>
+                    <span style="font-size: 12px ; font-weight: normal ; color:#999 "><span
+                            th:text="${question.commentCount}"></span>个回复 • <span
+                            th:text="${question.viewCount}"></span>次浏览 • <span
+                            th:text="${#dates.format(question.getGmtCreate() ,'yyyy-MM-dd HH:mm')}"></span>
                     </span>
                     <hr>
                 </div>
@@ -48,7 +51,7 @@
                         </a>
                     </li>
                     <li th:each="page:${questions.pages}" th:class="${questions.page==page}? 'active':''">
-                        <a th:href="@{/(page=${page})}" th:text="${page}" >
+                        <a th:href="@{/(page=${page})}" th:text="${page}">
                         </a>
                     </li>
                     <li th:if="${questions.showNext}">
@@ -63,8 +66,8 @@
                     </li>
                 </ul>
             </nav>
-            </div>
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 " >
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
             <h3>热门话题</h3>
             ·问题标题：请用精简的语言描述您发布的问题，不超过25个字<br>
             ·问题补充：详细补充您的问题内容，并确保问题描述清晰直观，并提供一些相关的资料；<br>
@@ -78,7 +81,7 @@
             ·选择标签：选择一个或多个合适的标签，不超过10个字；<br>
             ·关于积分：发起一个问题会消耗您20积分，每多一个回复你将获得5个积分的奖励，为了您的利益，在发起问题的时候希望能够更好地描述您的问题以及多使用站内搜索功能；<br>
         </div>
-        </div>
     </div>
+</div>
 </body>
 </html>

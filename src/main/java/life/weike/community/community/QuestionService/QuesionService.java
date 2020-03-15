@@ -43,7 +43,8 @@ public class QuesionService {
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
         for (Question question : questions) {
-            User user = githubUserMapper.findById(question.getCreator());
+            Long userid = question.getCreator();
+            User user = githubUserMapper.findByAccountId(String.valueOf(userid));
             QuestionDTO questionDTO = new QuestionDTO();
             BeanUtils.copyProperties(question, questionDTO);
             questionDTO.setUser(user);
@@ -76,7 +77,8 @@ public class QuesionService {
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
         for (Question question : questions) {
-            User user = githubUserMapper.findById(question.getCreator());
+            Long userid = question.getCreator();
+            User user = githubUserMapper.findByAccountId(String.valueOf(userid));
             QuestionDTO questionDTO = new QuestionDTO();
             BeanUtils.copyProperties(question, questionDTO);
             questionDTO.setUser(user);
@@ -91,8 +93,23 @@ public class QuesionService {
 
     public QuestionDTO getById(long id) {
         Question question = questionMapper.getById(id);
+
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question,questionDTO);
+        Long userid = question.getCreator();
+        User user = githubUserMapper.findByAccountId(String.valueOf(userid));
+        questionDTO.setUser(user);
         return questionDTO;
+    }
+
+    public void createOrUpdate(Question question) {
+        if(question.getId() == null){
+            question.setGmtCreate(System.currentTimeMillis());
+            question.setGmtModified(question.getGmtCreate());
+            questionMapper.create(question);
+        }else {
+            question.setGmtModified(question.getGmtCreate());
+            questionMapper.update(question);
+        }
     }
 }

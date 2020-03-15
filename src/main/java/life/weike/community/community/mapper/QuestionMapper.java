@@ -25,4 +25,6 @@ public interface QuestionMapper {
 
     @Select("select * from question where id=#{id}")
     Question getById(@Param("id") long id);
+
+    void update(Question question);
 }
