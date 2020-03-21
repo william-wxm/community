@@ -102,8 +102,11 @@ public class QuesionService {
         return questionDTO;
     }
 
+
+
     public void createOrUpdate(Question question) {
-        if(question.getId() == null){
+        Long longId=question.getId();
+        if(longId==null){
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
             questionMapper.create(question);
