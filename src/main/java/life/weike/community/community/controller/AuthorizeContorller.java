@@ -4,7 +4,7 @@ import life.weike.community.community.GithubProvider.githubProvider;
 import life.weike.community.community.QuestionService.UserService;
 import life.weike.community.community.dto.AccessTokenDTO;
 import life.weike.community.community.dto.GithubUser;
-import life.weike.community.community.mapper.GithubUserMapper;
+import life.weike.community.community.mapper.UserMapper;
 import life.weike.community.community.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,8 +26,6 @@ public class AuthorizeContorller {
     private String clientSecret;
     @Value("${github.redirect.uri}")
     private String redirectURI;
-    @Autowired
-    private GithubUserMapper githubUserMapper;
     @Autowired
     private githubProvider githubProvider;
     @Autowired
