@@ -51,7 +51,6 @@ public class AuthorizeContorller {
             user.setName(githubUser.getName());
             user.setAvatarUrl(githubUser.getAvatar_url());
             userService.createOrUpdate(user);
-            //githubUserMapper.insert(user);
             request.getSession().setAttribute("user",user);
             response.addCookie(new Cookie("token",token));
 

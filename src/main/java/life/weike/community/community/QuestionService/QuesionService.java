@@ -1,5 +1,7 @@
 package life.weike.community.community.QuestionService;
 
+import life.weike.community.community.Exception.CustomizeErrorCode;
+import life.weike.community.community.Exception.CustomizeException;
 import life.weike.community.community.dto.PaginationDTO;
 import life.weike.community.community.dto.QuestionDTO;
 import life.weike.community.community.mapper.QuestionMapper;
@@ -26,7 +28,7 @@ public class QuesionService {
     public PaginationDTO list(Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
         QuestionExample questionExample = new QuestionExample();
-        Integer totalCount = (int)questionMapper.countByExample(questionExample);
+        Integer totalCount = (int) questionMapper.countByExample(questionExample);
 
         Integer totalPage;
         if (totalCount % size == 0) {
@@ -66,7 +68,7 @@ public class QuesionService {
         Integer totalPage;
         QuestionExample questionExample = new QuestionExample();
         questionExample.createCriteria().andCreatorEqualTo(userId);
-        Integer totalCount = (int)questionMapper.countByExample(questionExample);
+        Integer totalCount = (int) questionMapper.countByExample(questionExample);
         if (totalCount % size == 0) {
             totalPage = 1;
         } else {
@@ -104,9 +106,11 @@ public class QuesionService {
 
     public QuestionDTO getById(long id) {
         Question question = questionMapper.selectByPrimaryKey(id);
-
+        if (question == null) {
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         QuestionDTO questionDTO = new QuestionDTO();
-        BeanUtils.copyProperties(question,questionDTO);
+        BeanUtils.copyProperties(question, questionDTO);
         Long long1 = question.getCreator();
         UserExample userExample = new UserExample();
         userExample.createCriteria().andAccountIdEqualTo(String.valueOf(long1));
@@ -116,23 +120,25 @@ public class QuesionService {
     }
 
 
-
     public void createOrUpdate(Question question) {
-        Long longId=question.getId();
-        if(longId==null){
+        Long longId = question.getId();
+        if (longId == null) {
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
             questionMapper.insert(question);
-        }else {
+        } else {
 
             Question updateQuestion = new Question();
-updateQuestion.setGmtModified(System.currentTimeMillis());
-updateQuestion.setTag(question.getTag());
-updateQuestion.setTitle(question.getTitle());
-updateQuestion.setDescription(question.getDescription());
+            updateQuestion.setGmtModified(System.currentTimeMillis());
+            updateQuestion.setTag(question.getTag());
+            updateQuestion.setTitle(question.getTitle());
+            updateQuestion.setDescription(question.getDescription());
             QuestionExample questionExample = new QuestionExample();
             questionExample.createCriteria().andIdEqualTo(question.getId());
-            questionMapper.updateByExampleSelective(updateQuestion, questionExample);
+            int updateCode = questionMapper.updateByExampleSelective(updateQuestion, questionExample);
+            if (updateCode != 1) {
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
     }
 }
