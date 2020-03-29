@@ -16,6 +16,8 @@ public class QuestionConntroller {
     public String question(@PathVariable(name="id") long id,
                            Model model){
         QuestionDTO questionDTO = quesionService.getById(id);
+        //累加评论
+        quesionService.incView(id);
         model.addAttribute("question",questionDTO);
         return "question";
     }

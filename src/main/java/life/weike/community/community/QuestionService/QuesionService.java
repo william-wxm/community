@@ -4,6 +4,7 @@ import life.weike.community.community.Exception.CustomizeErrorCode;
 import life.weike.community.community.Exception.CustomizeException;
 import life.weike.community.community.dto.PaginationDTO;
 import life.weike.community.community.dto.QuestionDTO;
+import life.weike.community.community.mapper.QuestionExtMapper;
 import life.weike.community.community.mapper.QuestionMapper;
 import life.weike.community.community.mapper.UserMapper;
 import life.weike.community.community.model.Question;
@@ -24,6 +25,8 @@ public class QuesionService {
     private QuestionMapper questionMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     public PaginationDTO list(Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -140,5 +143,12 @@ public class QuesionService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
+    }
+
+    public void incView(long id) {
+        Question record = new Question();
+        record.setId(id);
+        record.setViewCount(1L);
+        questionExtMapper.incView(record);
     }
 }
