@@ -49,7 +49,7 @@ public class AuthorizeContorller {
             user.setToken(token);
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setName(githubUser.getName());
-            user.setAvatarUrl(githubUser.getAvatar_url());
+            user.setAvatar(githubUser.getAvatar_url());
             userService.createOrUpdate(user);
             request.getSession().setAttribute("user",user);
             response.addCookie(new Cookie("token",token));
