@@ -20,7 +20,7 @@ public class PublishController {
     private QuesionService quesionService;
 
     @GetMapping("/publish/{id}")
-    public String edit(@PathVariable(name = "id") long id,
+    public String edit(@PathVariable(name = "id") Long id,
                        Model model) {
         QuestionDTO question = quesionService.getById(id);
         model.addAttribute("title", question.getTitle());
@@ -39,7 +39,7 @@ public class PublishController {
     public String doPulish(@RequestParam(value = "title", required = false) String title,
                            @RequestParam(value = "description", required = false) String description,
                            @RequestParam(value = "tag", required = false) String tag,
-                           @RequestParam(value = "id", required = false) long id,
+                           @RequestParam(value = "id", required = false) Long id,
                            HttpServletRequest request,
                            Model model) {
         if (title == null || title == "") {

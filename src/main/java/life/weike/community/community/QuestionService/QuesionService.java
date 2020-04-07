@@ -48,7 +48,7 @@ public class QuesionService {
         }
         paginationDTO.setPagination(totalPage, page);
         Integer offset = size * (page - 1);
-        List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(new QuestionExample(), new RowBounds(offset, size));
+        List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(questionExample, new RowBounds(offset, size));
         List<QuestionDTO> questionDTOList = new ArrayList<>();
         for (Question question : questions) {
             Long long1 = question.getCreator();
@@ -127,6 +127,9 @@ public class QuesionService {
         Long longId = question.getId();
         if (longId == null) {
             question.setGmtCreate(System.currentTimeMillis());
+            question.setViewCount(0L);
+            question.setLikeCount(0L);
+            question.setCommentCount(0L);
             question.setGmtModified(question.getGmtCreate());
             questionMapper.insert(question);
         } else {

@@ -13,7 +13,7 @@ public class QuestionConntroller {
     @Autowired
     private QuesionService quesionService;
     @GetMapping("/question/{id}")
-    public String question(@PathVariable(name="id") long id,
+    public String question(@PathVariable(name="id") Long id,
                            Model model){
         QuestionDTO questionDTO = quesionService.getById(id);
         //累加评论
