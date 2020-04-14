@@ -8,8 +8,7 @@ import life.weike.community.community.model.Comment;
 import life.weike.community.community.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,17 +18,16 @@ public class CommentController {
 
     @Autowired
     private CommentService commentService;
-
-    @PostMapping("/comment")
+    @RequestMapping(value = "/comment" , method = RequestMethod.POST)
     @ResponseBody
-    public Object post(CommentDTO commentDTO,
+    public Object post( @RequestBody CommentDTO commentDTO,
                        HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             return ResultDTO.errorOf(CustomizeErrorCode.NO_LOGIN);
         }
         Comment comment = new Comment();
-        comment.setParentId(comment.getParentId());
+        comment.setParentId(commentDTO.getParentId());
         comment.setComment(commentDTO.getContent());
         comment.setType(commentDTO.getType());
         comment.setGmtCreate(System.currentTimeMillis());

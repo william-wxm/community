@@ -204,32 +204,32 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Long value) {
+        public Criteria andIdEqualTo(long value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Long value) {
+        public Criteria andIdNotEqualTo(long value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Long value) {
+        public Criteria andIdGreaterThan(long value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andIdGreaterThanOrEqualTo(long value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Long value) {
+        public Criteria andIdLessThan(long value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Long value) {
+        public Criteria andIdLessThanOrEqualTo(long value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
@@ -244,12 +244,12 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Long value1, Long value2) {
+        public Criteria andIdBetween(long value1, long value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Long value1, Long value2) {
+        public Criteria andIdNotBetween(long value1, long value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -264,32 +264,32 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andParentIdEqualTo(Long value) {
+        public Criteria andParentIdEqualTo(long value) {
             addCriterion("parent_id =", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentIdNotEqualTo(Long value) {
+        public Criteria andParentIdNotEqualTo(long value) {
             addCriterion("parent_id <>", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentIdGreaterThan(Long value) {
+        public Criteria andParentIdGreaterThan(long value) {
             addCriterion("parent_id >", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andParentIdGreaterThanOrEqualTo(long value) {
             addCriterion("parent_id >=", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentIdLessThan(Long value) {
+        public Criteria andParentIdLessThan(long value) {
             addCriterion("parent_id <", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentIdLessThanOrEqualTo(Long value) {
+        public Criteria andParentIdLessThanOrEqualTo(long value) {
             addCriterion("parent_id <=", value, "parentId");
             return (Criteria) this;
         }
@@ -304,12 +304,12 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andParentIdBetween(Long value1, Long value2) {
+        public Criteria andParentIdBetween(long value1, long value2) {
             addCriterion("parent_id between", value1, value2, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentIdNotBetween(Long value1, Long value2) {
+        public Criteria andParentIdNotBetween(long value1, long value2) {
             addCriterion("parent_id not between", value1, value2, "parentId");
             return (Criteria) this;
         }
@@ -384,32 +384,32 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommentatorEqualTo(Long value) {
+        public Criteria andCommentatorEqualTo(long value) {
             addCriterion("commentator =", value, "commentator");
             return (Criteria) this;
         }
 
-        public Criteria andCommentatorNotEqualTo(Long value) {
+        public Criteria andCommentatorNotEqualTo(long value) {
             addCriterion("commentator <>", value, "commentator");
             return (Criteria) this;
         }
 
-        public Criteria andCommentatorGreaterThan(Long value) {
+        public Criteria andCommentatorGreaterThan(long value) {
             addCriterion("commentator >", value, "commentator");
             return (Criteria) this;
         }
 
-        public Criteria andCommentatorGreaterThanOrEqualTo(Long value) {
+        public Criteria andCommentatorGreaterThanOrEqualTo(long value) {
             addCriterion("commentator >=", value, "commentator");
             return (Criteria) this;
         }
 
-        public Criteria andCommentatorLessThan(Long value) {
+        public Criteria andCommentatorLessThan(long value) {
             addCriterion("commentator <", value, "commentator");
             return (Criteria) this;
         }
 
-        public Criteria andCommentatorLessThanOrEqualTo(Long value) {
+        public Criteria andCommentatorLessThanOrEqualTo(long value) {
             addCriterion("commentator <=", value, "commentator");
             return (Criteria) this;
         }
@@ -424,12 +424,12 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommentatorBetween(Long value1, Long value2) {
+        public Criteria andCommentatorBetween(long value1, long value2) {
             addCriterion("commentator between", value1, value2, "commentator");
             return (Criteria) this;
         }
 
-        public Criteria andCommentatorNotBetween(Long value1, Long value2) {
+        public Criteria andCommentatorNotBetween(long value1, long value2) {
             addCriterion("commentator not between", value1, value2, "commentator");
             return (Criteria) this;
         }
@@ -514,32 +514,32 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateEqualTo(Long value) {
+        public Criteria andGmtCreateEqualTo(long value) {
             addCriterion("gmt_create =", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateNotEqualTo(Long value) {
+        public Criteria andGmtCreateNotEqualTo(long value) {
             addCriterion("gmt_create <>", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateGreaterThan(Long value) {
+        public Criteria andGmtCreateGreaterThan(long value) {
             addCriterion("gmt_create >", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateGreaterThanOrEqualTo(Long value) {
+        public Criteria andGmtCreateGreaterThanOrEqualTo(long value) {
             addCriterion("gmt_create >=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateLessThan(Long value) {
+        public Criteria andGmtCreateLessThan(long value) {
             addCriterion("gmt_create <", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateLessThanOrEqualTo(Long value) {
+        public Criteria andGmtCreateLessThanOrEqualTo(long value) {
             addCriterion("gmt_create <=", value, "gmtCreate");
             return (Criteria) this;
         }
@@ -554,12 +554,12 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateBetween(Long value1, Long value2) {
+        public Criteria andGmtCreateBetween(long value1, long value2) {
             addCriterion("gmt_create between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateNotBetween(Long value1, Long value2) {
+        public Criteria andGmtCreateNotBetween(long value1, long value2) {
             addCriterion("gmt_create not between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
@@ -574,32 +574,32 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andGmtModifiedEqualTo(Long value) {
+        public Criteria andGmtModifiedEqualTo(long value) {
             addCriterion("gmt_modified =", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtModifiedNotEqualTo(Long value) {
+        public Criteria andGmtModifiedNotEqualTo(long value) {
             addCriterion("gmt_modified <>", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtModifiedGreaterThan(Long value) {
+        public Criteria andGmtModifiedGreaterThan(long value) {
             addCriterion("gmt_modified >", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtModifiedGreaterThanOrEqualTo(Long value) {
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(long value) {
             addCriterion("gmt_modified >=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtModifiedLessThan(Long value) {
+        public Criteria andGmtModifiedLessThan(long value) {
             addCriterion("gmt_modified <", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtModifiedLessThanOrEqualTo(Long value) {
+        public Criteria andGmtModifiedLessThanOrEqualTo(long value) {
             addCriterion("gmt_modified <=", value, "gmtModified");
             return (Criteria) this;
         }
@@ -614,12 +614,12 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andGmtModifiedBetween(Long value1, Long value2) {
+        public Criteria andGmtModifiedBetween(long value1, long value2) {
             addCriterion("gmt_modified between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtModifiedNotBetween(Long value1, Long value2) {
+        public Criteria andGmtModifiedNotBetween(long value1, long value2) {
             addCriterion("gmt_modified not between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
@@ -634,32 +634,32 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andLikeCountEqualTo(Long value) {
+        public Criteria andLikeCountEqualTo(long value) {
             addCriterion("like_count =", value, "likeCount");
             return (Criteria) this;
         }
 
-        public Criteria andLikeCountNotEqualTo(Long value) {
+        public Criteria andLikeCountNotEqualTo(long value) {
             addCriterion("like_count <>", value, "likeCount");
             return (Criteria) this;
         }
 
-        public Criteria andLikeCountGreaterThan(Long value) {
+        public Criteria andLikeCountGreaterThan(long value) {
             addCriterion("like_count >", value, "likeCount");
             return (Criteria) this;
         }
 
-        public Criteria andLikeCountGreaterThanOrEqualTo(Long value) {
+        public Criteria andLikeCountGreaterThanOrEqualTo(long value) {
             addCriterion("like_count >=", value, "likeCount");
             return (Criteria) this;
         }
 
-        public Criteria andLikeCountLessThan(Long value) {
+        public Criteria andLikeCountLessThan(long value) {
             addCriterion("like_count <", value, "likeCount");
             return (Criteria) this;
         }
 
-        public Criteria andLikeCountLessThanOrEqualTo(Long value) {
+        public Criteria andLikeCountLessThanOrEqualTo(long value) {
             addCriterion("like_count <=", value, "likeCount");
             return (Criteria) this;
         }
@@ -674,12 +674,12 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andLikeCountBetween(Long value1, Long value2) {
+        public Criteria andLikeCountBetween(long value1, long value2) {
             addCriterion("like_count between", value1, value2, "likeCount");
             return (Criteria) this;
         }
 
-        public Criteria andLikeCountNotBetween(Long value1, Long value2) {
+        public Criteria andLikeCountNotBetween(long value1, long value2) {
             addCriterion("like_count not between", value1, value2, "likeCount");
             return (Criteria) this;
         }

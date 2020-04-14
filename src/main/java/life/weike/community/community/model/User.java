@@ -8,7 +8,7 @@ public class User {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    private Long id;
+    private long id;
 
     /**
      *
@@ -81,7 +81,7 @@ public class User {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

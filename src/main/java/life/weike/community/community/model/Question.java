@@ -8,7 +8,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    private Long id;
+    private long id;
 
     /**
      *
@@ -26,7 +26,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    private Long gmtCreate;
+    private long gmtCreate;
 
     /**
      *
@@ -35,7 +35,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    private Long gmtModified;
+    private long gmtModified;
 
     /**
      *
@@ -44,7 +44,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    private Long creator;
+    private long creator;
 
     /**
      *
@@ -53,7 +53,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    private Long commentCount;
+    private long commentCount;
 
     /**
      *
@@ -62,7 +62,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    private Long viewCount;
+    private long viewCount;
 
     /**
      *
@@ -71,7 +71,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    private Long likeCount;
+    private long likeCount;
 
     /**
      *
@@ -99,7 +99,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -111,7 +111,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -147,7 +147,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public Long getGmtCreate() {
+    public long getGmtCreate() {
         return gmtCreate;
     }
 
@@ -159,7 +159,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public void setGmtCreate(Long gmtCreate) {
+    public void setGmtCreate(long gmtCreate) {
         this.gmtCreate = gmtCreate;
     }
 
@@ -171,7 +171,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public Long getGmtModified() {
+    public long getGmtModified() {
         return gmtModified;
     }
 
@@ -183,7 +183,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public void setGmtModified(Long gmtModified) {
+    public void setGmtModified(long gmtModified) {
         this.gmtModified = gmtModified;
     }
 
@@ -195,7 +195,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public Long getCreator() {
+    public long getCreator() {
         return creator;
     }
 
@@ -207,7 +207,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public void setCreator(Long creator) {
+    public void setCreator(long creator) {
         this.creator = creator;
     }
 
@@ -219,7 +219,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public Long getCommentCount() {
+    public long getCommentCount() {
         return commentCount;
     }
 
@@ -231,7 +231,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public void setCommentCount(Long commentCount) {
+    public void setCommentCount(long commentCount) {
         this.commentCount = commentCount;
     }
 
@@ -243,7 +243,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public Long getViewCount() {
+    public long getViewCount() {
         return viewCount;
     }
 
@@ -255,7 +255,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public void setViewCount(Long viewCount) {
+    public void setViewCount(long viewCount) {
         this.viewCount = viewCount;
     }
 
@@ -267,7 +267,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public Long getLikeCount() {
+    public long getLikeCount() {
         return likeCount;
     }
 
@@ -279,7 +279,7 @@ public class Question {
      *
      * @mbg.generated Mon Mar 30 21:46:57 CST 2020
      */
-    public void setLikeCount(Long likeCount) {
+    public void setLikeCount(long likeCount) {
         this.likeCount = likeCount;
     }
 
