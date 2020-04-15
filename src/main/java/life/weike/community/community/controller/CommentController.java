@@ -2,7 +2,7 @@ package life.weike.community.community.controller;
 
 import life.weike.community.community.Exception.CustomizeErrorCode;
 import life.weike.community.community.QuestionService.CommentService;
-import life.weike.community.community.dto.CommentDTO;
+import life.weike.community.community.dto.CommentCreateDTO;
 import life.weike.community.community.dto.ResultDTO;
 import life.weike.community.community.model.Comment;
 import life.weike.community.community.model.User;
@@ -20,16 +20,19 @@ public class CommentController {
     private CommentService commentService;
     @RequestMapping(value = "/comment" , method = RequestMethod.POST)
     @ResponseBody
-    public Object post( @RequestBody CommentDTO commentDTO,
+    public Object post( @RequestBody CommentCreateDTO commentCreateDTO,
                        HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             return ResultDTO.errorOf(CustomizeErrorCode.NO_LOGIN);
         }
+        if (commentCreateDTO == null || commentCreateDTO.getContent() == null || commentCreateDTO.getContent() == ""){
+            return ResultDTO.errorOf(CustomizeErrorCode.COMMENT_IS_EMPTY);
+        }
         Comment comment = new Comment();
-        comment.setParentId(commentDTO.getParentId());
-        comment.setComment(commentDTO.getContent());
-        comment.setType(commentDTO.getType());
+        comment.setParentId(commentCreateDTO.getParentId());
+        comment.setComment(commentCreateDTO.getContent());
+        comment.setType(commentCreateDTO.getType());
         comment.setGmtCreate(System.currentTimeMillis());
         comment.setGmtModified(System.currentTimeMillis());
         comment.setLikeCount(0L);
